@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -36,6 +37,8 @@ func main() {
 	r.HandleFunc("/users", GetUsers)
 	r.HandleFunc("/user", AddUser).Methods("POST")
 	// r.HandleFunc("")
+	fmt.Println("Server started")
+
 	log.Fatal(http.ListenAndServe(":10000", r))
 
 }
